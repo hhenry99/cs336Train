@@ -56,6 +56,53 @@
 	}
 	%>
 
-<h1>Train Schedule</h1>
+	<h1>Train Schedule</h1>
+	<table border="1">
+		<tr>
+			<th>Transit Line</th>
+			<th>Stops</th>
+			<th>Fare</th>
+			<th>Travel Time</th>
+			<th>Departure</th>
+			<th>Arrival</th>
+			<th>Origin</th>
+			<th>Destination</th>
+		</tr>
+		
+		<%
+		try {
+			ApplicationDB db = new ApplicationDB();
+			Connection con = db.getConnection();
+			
+			Statement stmt = con.createStatement();
+			
+			ResultSet rs = stmt.executeQuery("SELECT * FROM trainschedule");
+			
+			while (rs.next()) {
+				String transitLine = rs.getString("transitLine");
+				%>
+				
+				<tr>
+				<td>
+				<%out.print(transitLine);%>
+				</td>
+				<td>
+				
+				</td>
+				</tr>
+				
+				<%
+			}
+			con.close();
+		} catch (Exception e) {
+			out.println(e);
+		}
+		%>
+		<%
+	
+        %>
+		
+		
+	</table>
 </body>
 </html>
