@@ -106,3 +106,35 @@ CREATE TABLE Manages (
 
 insert into Customer (first_name, last_name, username, password, email) VALUES ("Henry", "Nguyen", "apple", "apple", "henrygl450@yahoo.com");
 insert into Employee VALUES (123456789, "Robin", "Gold", "cherry", "cherry", false);
+INSERT INTO Station (station_id, state, city, name) VALUES
+(1, 'CA', 'San Francisco', 'San Francisco Station'),
+(2, 'CA', 'Los Angeles', 'Los Angeles Station'),
+(3, 'CA', 'San Jose', 'San Jose Station'),
+(4, 'CA', 'Fresno', 'Fresno Station'),
+(5, 'CA', 'Sacramento', 'Sacramento Station');
+
+-- Insert train schedules
+INSERT INTO TrainSchedule (transit_name, stops, fare, travel_time, dep_time, arr_time, origin_station_id, destination_station_id) VALUES
+('Express Line', 3, 100, 360, '2024-07-15 08:00:00', '2024-07-15 14:00:00', 1, 2),
+('Coastal Line', 4, 120, 480, '2024-07-15 09:00:00', '2024-07-15 17:00:00', 1, 3);
+
+-- Insert trains (assuming the Train table has train_id and other columns)
+INSERT INTO Train (train_id) VALUES
+(1),
+(2);
+
+-- Insert train has schedule
+INSERT INTO Train_Has_Schedule (train_id, transit_name) VALUES
+(1, 'Express Line'),
+(2, 'Coastal Line');
+
+-- Insert stops for each train
+INSERT INTO Stops (train_id, station_id, arrival, depart) VALUES
+(1, 1, '2024-07-15 08:00:00', '2024-07-15 08:10:00'), -- San Francisco
+(1, 4, '2024-07-15 10:00:00', '2024-07-15 10:10:00'), -- Fresno
+(1, 2, '2024-07-15 14:00:00', '2024-07-15 14:10:00'), -- Los Angeles
+
+(2, 1, '2024-07-15 09:00:00', '2024-07-15 09:10:00'), -- San Francisco
+(2, 5, '2024-07-15 11:00:00', '2024-07-15 11:10:00'), -- Sacramento
+(2, 4, '2024-07-15 13:00:00', '2024-07-15 13:10:00'), -- Fresno
+(2, 3, '2024-07-15 17:00:00', '2024-07-15 17:10:00'); -- San Jose
