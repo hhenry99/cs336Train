@@ -18,7 +18,7 @@ out.println("<h1>Welcome, " + userid + "</h1>");
 %>
 <br>
 
-<p><a href = "./rep-train-schedule.jsp">Train Schedule</a></p>
+<p><a href = "./train-schedule/train-schedule.jsp">Train Schedule</a></p>
 <p><a href = "./rep-forum.jsp">Answer Customer Questions</a></p>
 
 </body>
