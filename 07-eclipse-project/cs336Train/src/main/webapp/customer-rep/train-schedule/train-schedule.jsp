@@ -403,7 +403,14 @@
 	<div id="produce-lists" style="border: 1px solid black; margin: 2%; padding: 25px;">
 		<h1>Produce Lists</h1>
 		<br>
+		
+		<div id="search-by-station">
 		<h4>Search Train Schedules by Station</h4>
+		<form method="post" action="./show-schedules.jsp">
+		<label>Station ID: </label><input type="text" name="station-id">
+		<input type="submit" value="create list"> 
+		</form>
+		</div>
 		<h4>Search Reservations by Date</h4>
 		</div>
 </body>
