@@ -2,23 +2,24 @@
     pageEncoding="ISO-8859-1" import="com.cs336.pkg.*"%>
 <%@ page import="java.io.*,java.util.*,java.sql.*"%>
 <%@ page import="javax.servlet.http.*,javax.servlet.*" %>
-
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-		<title>Customer Representative</title>
-	</head>
+<head>
+<meta charset="UTF-8">
+<title>Customer</title>
+</head>
 <body>
+
 <%
 String userid = (String) session.getAttribute("user");
+Integer cid = (Integer) session.getAttribute("customer-id");
 out.println("<h1>Welcome, " + userid + "</h1>");
+out.println("customer ID: " + cid);
 %>
 <br>
 
-<p><a href = "./train-schedule/train-schedule.jsp">Train Schedule</a></p>
-<p><a href = "./forum/rep-forum.jsp">Answer Customer Questions</a></p>
+<p><a href = "./reservation.jsp">Reservation</a></p>
+<p><a href = "./customer-forum/forum-index.jsp">Forum</a></p>
 
 </body>
 </html>

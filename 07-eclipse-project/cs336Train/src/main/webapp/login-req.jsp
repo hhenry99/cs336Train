@@ -33,9 +33,11 @@
 		        s.setAttribute("user", userid); 
 
 		        if (table.equalsIgnoreCase("customer")) {
-		        	response.sendRedirect("./success.jsp");
+		        	response.sendRedirect("./customer/customer-index.jsp");
+		        	s.setAttribute("customer-id", rs.getInt("cid"));
 		        } else {
 		        	response.sendRedirect("./customer-rep/rep-index.jsp");
+		        	s.setAttribute("ssn", rs.getInt("ssn"));
 		        }
 		        
 		    } else {
