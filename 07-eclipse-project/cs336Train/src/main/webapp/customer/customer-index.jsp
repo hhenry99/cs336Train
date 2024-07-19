@@ -11,6 +11,7 @@
 <body>
 
 <%
+out.println("<a href='../logout.jsp'>Log out</a>");
 String userid = (String) session.getAttribute("user");
 Integer cid = (Integer) session.getAttribute("customer-id");
 out.println("<h1>Welcome, " + userid + "</h1>");
