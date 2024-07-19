@@ -92,6 +92,22 @@
 			try {
 		ApplicationDB db = new ApplicationDB();
 		Connection con = db.getConnection();
+		
+		String maxTrainID = "SELECT MAX(train_id) max FROM train";
+		PreparedStatement ps = con.prepareStatement(maxTrainID);
+		ResultSet rs = ps.executeQuery();
+
+		int trainId = 1;
+		if (rs.next()) {
+		trainId = rs.getInt("max") + 1;
+		}
+		
+		String insertTrain = "INSERT INTO train VALUES (?)";
+		
+		ps = con.prepareStatement(insertTrain);
+		ps.setInt(1, trainId);
+		
+		ps.executeUpdate();
 
 		String insert = "INSERT INTO trainschedule " + "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
@@ -106,6 +122,12 @@
 		pst.setInt(7, newOrigin);
 		pst.setInt(8, newDestination);
 
+		pst.executeUpdate();
+		
+		pst = con.prepareStatement("INSERT INTO train_has_schedule VALUES (?, ?)");
+		pst.setInt(1, trainId);
+		pst.setString(2, newTransitLine);
+		
 		pst.executeUpdate();
 
 		db.closeConnection(con);

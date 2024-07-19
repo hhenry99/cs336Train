@@ -18,7 +18,7 @@ out.println("customer ID: " + cid);
 %>
 <br>
 
-<p><a href = "./reservation.jsp">Reservation</a></p>
+<p><a href = "./reservation/reservation-index.jsp">Reservation</a></p>
 <p><a href = "./customer-forum/forum-index.jsp">Forum</a></p>
 
 </body>

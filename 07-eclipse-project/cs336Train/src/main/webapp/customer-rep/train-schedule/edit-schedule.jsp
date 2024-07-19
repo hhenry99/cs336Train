@@ -52,11 +52,6 @@ div {
 		<form method="post">
 			<table>
 				<tr>
-					<td>Transit Name</td>
-					<td><input type="text" name="edit-transit-name"
-						value="<%=rs.getString("transit_name")%>"></td>
-				</tr>
-				<tr>
 					<td>Stops</td>
 					<td><input type="text" name="edit-stops"
 						value="<%=rs.getInt("stops")%>"></td>
@@ -105,7 +100,6 @@ out.print(departure.substring(0, 16));%>"></td>
 	Connection con = db.getConnection();
 
 	//get update values
-	String editTransitLine = request.getParameter("edit-transit-name");
 	String editStopsStr = request.getParameter("edit-stops");
 	String editFareStr = request.getParameter("edit-fare");
 	String editTravelTimeStr = request.getParameter("edit-travel-time");
@@ -131,12 +125,11 @@ out.print(departure.substring(0, 16));%>"></td>
 			? Integer.valueOf(editDestinationStr)
 			: null;
 
-	String update = "UPDATE trainschedule " + "SET transit_name = ?, stops = ?, fare = ?, "
+	String update = "UPDATE trainschedule " + "SET stops = ?, fare = ?, "
 			+ "travel_time = ?, dep_time = ?, arr_time = ?, " + "origin_station_id = ?, destination_station_id = ? "
 					+ "WHERE transit_name = ?";
 
 	PreparedStatement ps = con.prepareStatement(update);
-	ps.setString(1, editTransitLine);
 	ps.setInt(2, editStops);
 	ps.setInt(3, editFare);
 	ps.setInt(4, editTravelTime);

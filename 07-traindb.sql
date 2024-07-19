@@ -313,7 +313,7 @@ CREATE TABLE `train` (
 
 LOCK TABLES `train` WRITE;
 /*!40000 ALTER TABLE `train` DISABLE KEYS */;
-INSERT INTO `train` VALUES (1),(2);
+INSERT INTO `train` VALUES (1),(2),(3),(4);
 /*!40000 ALTER TABLE `train` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -330,7 +330,7 @@ CREATE TABLE `train_has_schedule` (
   PRIMARY KEY (`train_id`,`transit_name`),
   KEY `transit_name` (`transit_name`),
   CONSTRAINT `train_has_schedule_ibfk_1` FOREIGN KEY (`train_id`) REFERENCES `train` (`train_id`),
-  CONSTRAINT `train_has_schedule_ibfk_2` FOREIGN KEY (`transit_name`) REFERENCES `trainschedule` (`transit_name`)
+  CONSTRAINT `train_has_schedule_ibfk_2` FOREIGN KEY (`transit_name`) REFERENCES `trainschedule` (`transit_name`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -387,4 +387,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-07-17 19:13:35
+-- Dump completed on 2024-07-18 22:54:02
